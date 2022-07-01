@@ -1,0 +1,106 @@
+# Advansed SQL Mandatory Project 
+# Queries
+
+ 6) Given a relation R( A, B, C, D) and Functional Dependency set FD = { AB → CD, B → C }, determine whether 
+    the given R is in 2NF? If not, convert it into 2 NF.
+ 
+Ans) As per given Functional Dependency FD ={ AB -> CD, B -> C } C,D are depended on A,B and C is depended on B But
+     A,B are not derived for any other attributes so that here A,B are " candidate key " and C,D are non-prime attributes.
+     
+     Here AB -> CD satisfies the definition of 2-NF, Because here CD are fully dependent on the candidate keys A,B
+     But  B-> c Doesn't satisfies the definition of 2-NF, Because here C is not fully depenent on candidate key AB It was 
+          pertially dependent on candidate keys AB
+
+     So that we need to convert into 2-NF, for that we need to break down the table
+       
+       1) R1 - {B,C}
+       2) R2 - {A,B,D}
+       
+      Now It was satisfying the definition of of 2-NF
+
+
+7) Given a relation R( P, Q, R, S, T) and Functional Dependency set FD = { PQ → R, S → T }, determine whether 
+   the given R is in 2NF? If not, convert it into 2 NF.
+
+Ans)  As per given Functional Dependency FD = {PQ -> R,S -> T} Here R is depended on PQ and T is depended on S But 
+      PQS are not derived from any other attributes so that here P,Q,S are " candidate keys " and R,T are non-prime 
+      attributes.
+
+      Here { PQ -> R } and {S -> T }  Both doesn't satisfies the definition of 2-NF Because In Both cases the non-prime 
+      Attributes R,T are partially dependent on the Candidate keys PQS 
+
+      So that we need to convert into 2-NF, for that we need to break down the table
+        
+        1) R1 - {P,Q,R}
+        2) R2 - {P,Q,S}
+        3) R3 - {S,T}
+        
+        Now It was satisfying the definition of of 2-NF
+
+8) Given a relation R( P, Q, R, S, T, U, V, W, X, Y) and Functional Dependency set 
+   FD = { PQ → R, PS → VW, QS → TU, P → X, W → Y }, determine whether the given R is in 2NF? If not, 
+   convert it into 2 NF.
+
+Ans) As per given Functional Dependency FD = {PQ -> R,PS -> VW,QS -> TU, P -> X,W -> Y} Here R is depended on PQ,
+     VW are depended on PS, TU depended on QS, X is depended on P and W is depended on Y.
+     Here PQS  are the only attributes which doesnot derived from any other attributes so that here we can say that 
+     PQS are the candidate keys.
+  
+      In the given functional Dependency no any Non-Prime attributes are fully dependent on the candidate keys PQS
+      all are partially dependent so that all are not satisfying the definition of 2-NF.
+      
+     So that we need to convert into 2-NF, for that we need to break down the table
+     
+       1)R1 - {P,Q,R}
+       2)R2 - {P,S,V,W}
+       3)R3 - {Q,S,T,U}
+       4)R4 - {P,X}
+       5)R5 - {P,Q,S,W}
+       6)R6 - {W,Y}
+    
+        Now It was satisfying the definition of of 2-NF.
+
+9) Given a relation R( X, Y, Z, W, P) and Functional Dependency set FD = { X → Y, Y → P, and Z → W}, 
+   determine whether the given R is in 3NF? If not, convert it into 3 NF.
+
+Ans) As per the given Functional Dependency we can say that Y is depended on X, P is depended on Y, and W is depended on Z
+     Here X,Z are only attributes which are not derived from any other attributes so  we can say that here X,Z are 
+     are the candidate keys.
+     Here XZ are prime attributes and Y,W,P are non-prime attributes
+
+     In the given Functional Dependency {X -> Y} and {Y -> P} are not satisfying the definition of 3-NF 
+     Because here P is Transitively dependent of X. and {Z -> W} is satisfying the definition of 3-NF
+
+     So that we need to convert into 3-NF, for that we need to break down the table.
+  
+      1)R1 - {X,Y}
+      2)R2 - {Y,P}
+      3)R3 - {X,Z}
+      4)R4 - {Z,W}
+      
+       Now It was satisfying the definition of 3-NF.
+     
+10) Given a relation R( P, Q, R, S, T, U, V, W, X, Y) and Functional Dependency set 
+    FD = { PQ → R, P → ST, Q → U, U → VW, and S → XY}, determine whether the given R is in 3NF? If not, 
+    convert it into 3 NF.
+
+Ans) As per the Given Functional Dependency we can say that R is depended on PQ, S T is depended on P, U is depended on Q
+     V W is ddepended on U and X Y is depended on S. Here P,Q are the only attributes which are not derived from any other
+     Attributes so  we can say that P,Q are the candidate keys.
+ 
+     Here P,Q are prime attributes where as R,S,T,U,V,W,X,Y are non-prime attributes.
+
+    In the given Functional Dependency only {PQ -> R } is satisfying the definition of 3-NF where as all other are not.
+    {P -> ST} and {S -> XY} here XY are Transitively depended on P
+    {Q -> U}  and {U -> VW} Here VW are Transitively depended on Q
+     So that these are not satisfying the definition of 3-NF.
+  
+     So that we need to convert into 3-NF, for that we need to break down the table.
+     
+      1)R1 - {P,Q,R}
+      2)R2 - {P,S,T}
+      3)R3 - {Q,U}
+      4)R4 - {U,V,W}
+      5)R5 - {S,X,Y}
+    
+       Now It was satisfying the definition of 3-NF.
